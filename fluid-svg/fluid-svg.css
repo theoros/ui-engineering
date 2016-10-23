@@ -1,0 +1,14 @@
+fluid-svg .container {
+  background-color: red;
+  border: 1px solid black;
+  padding: 0; }
+fluid-svg svg {
+  background-color: #4e99bf;
+  display: block; }
+  fluid-svg svg rect.little-rect {
+    fill: #ffe898; }
+
+.demo {
+  margin-bottom: 1em; }
+
+/*# sourceMappingURL=fluid-svg.css.map */

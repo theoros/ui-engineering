@@ -1,0 +1,28 @@
+doctype html
+html( lang='en' ng-app='ui.engineering' )
+  head
+    meta( charset='UTF-8' )
+    title UI Engineering — D3 Angular components
+    link( rel='stylesheet' href='fluid-svg/fluid-svg.css' )
+
+  body
+    h2
+      | Fluid SVG
+      br
+      small UI Engineering
+
+
+    .demo( style='width: 100px' )
+      small .demo 100px
+      fluid-svg
+    .demo( style='width: 200px' )
+      small .demo 200px
+      fluid-svg
+    .demo
+      small .demo 100%
+      fluid-svg
+
+    script( src='https://d3js.org/d3.v4.min.js' )
+    script( src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js' )
+    script( src='app/app.module.js' )
+    script( src='fluid-svg/fluid-svg.js' )

@@ -1,0 +1,26 @@
+fluid-svg {
+  // This targets the container element in each component's template
+  .container {
+    background-color: red;
+    border: 1px solid black;
+    padding: 0;
+  }
+
+  // This styles the SVG that gets created in Angular using D3
+  svg {
+    background-color: #4e99bf;
+    // This is needed as SVG is an inline element and will leave whitespace below
+    // to observe this behaviour comment/delete this line or change it to display: inline;
+    // and you will see a red bar appear below each SVG element
+    display: block;
+
+    rect.little-rect {
+      fill: #ffe898;
+    }
+  }
+}
+
+// This element appears in index.html and index-md.html
+.demo {
+  margin-bottom: 1em;
+}

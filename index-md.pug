@@ -1,0 +1,42 @@
+doctype html
+html( lang='en' ng-app='ui.engineering' )
+  head
+    meta( charset='UTF-8' )
+    meta( name='viewport' content='width=device-width, initial-scale=1' )
+    title UI Engineering — D3 Angular components — Angular Material
+
+    link( rel='stylesheet' href='fluid-svg/fluid-svg.css' )
+    link( rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic' )
+    link( rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons' )
+    link( rel='stylesheet' href='http://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.css' )
+
+  body
+    md-content.md-padding
+      md-card
+        md-card-header
+          md-card-avatar
+            md-icon sentiment_very_satisfied
+          md-card-header-text
+            span.md-headline Fluid SVG
+            span.md-subhead UI Engineering
+        md-card-content
+          .demo( layout='row' layout-align='space-between center')
+            .demo-item( flex='30' )
+              small .demo flex=30
+              fluid-svg
+            .demo-item( flex='60' )
+              small .demo flex=60
+              fluid-svg
+          .demo( layout='row' layout-align='space-between center')
+            .demo-item( flex )
+              small .demo flex=100
+              fluid-svg
+
+    script( src='https://d3js.org/d3.v4.min.js' )
+    script( src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js' )
+    script( src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js' )
+    script( src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js' )
+    script( src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js' )
+    script( src='https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js' )
+    script( src='app/app-md.module.js' )
+    script( src='fluid-svg/fluid-svg.js' )

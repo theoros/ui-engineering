@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEE,oBAAW;EACT,gBAAgB,EAAE,GAAG;EACrB,MAAM,EAAE,eAAe;EACvB,OAAO,EAAE,CAAC;AAIZ,aAAI;EACF,gBAAgB,EAAE,OAAO;EAIzB,OAAO,EAAE,KAAK;EAEd,8BAAiB;IACf,IAAI,EAAE,OAAO;;AAMnB,KAAM;EACJ,aAAa,EAAE,GAAG",
+"sources": ["fluid-svg.scss"],
+"names": [],
+"file": "fluid-svg.css"
+}

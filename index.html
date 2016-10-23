@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ui.engineering">
+  <head>
+    <meta charset="UTF-8">
+    <title>UI Engineering — D3 Angular components</title>
+    <link rel="stylesheet" href="fluid-svg/fluid-svg.css">
+  </head>
+  <body>
+    <h2>Fluid SVG<br><small>UI Engineering</small></h2>
+    <div class="demo" style="width: 100px"><small>.demo 100px</small>
+      <fluid-svg></fluid-svg>
+    </div>
+    <div class="demo" style="width: 200px"><small>.demo 200px</small>
+      <fluid-svg></fluid-svg>
+    </div>
+    <div class="demo"><small>.demo 100%</small>
+      <fluid-svg></fluid-svg>
+    </div>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="fluid-svg/fluid-svg.js"></script>
+  </body>
+</html>
