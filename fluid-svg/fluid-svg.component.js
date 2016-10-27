@@ -18,7 +18,7 @@
 
 
     function $onInit() {
-      $log.log( 'fluidSvg', vm );
+      $log.info( 'fluidSvg', fluidSvg );
 
       visualizationSetup();
       demoAddRect();

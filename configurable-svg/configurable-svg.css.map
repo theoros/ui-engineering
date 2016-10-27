@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEE,2BAAW;EACT,gBAAgB,EAAE,GAAG;EACrB,MAAM,EAAE,eAAe;EACvB,OAAO,EAAE,CAAC;AAIZ,oBAAI;EACF,UAAU,EAAE,WAAW;EACvB,gBAAgB,EAAE,OAAO;EAIzB,OAAO,EAAE,KAAK;EAEd,qCAAiB;IACf,IAAI,EAAE,OAAO",
+"sources": ["configurable-svg.scss"],
+"names": [],
+"file": "configurable-svg.css"
+}

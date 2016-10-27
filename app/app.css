@@ -1,0 +1,9 @@
+.demo {
+  margin-bottom: 1em;
+  margin-right: 1em; }
+  .demo .inputs {
+    margin-bottom: 1em; }
+    .demo .inputs input[type=number] {
+      width: 100px; }
+
+/*# sourceMappingURL=app.css.map */

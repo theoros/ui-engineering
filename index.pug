@@ -3,26 +3,84 @@ html( lang='en' ng-app='ui.engineering' )
   head
     meta( charset='UTF-8' )
     title UI Engineering — D3 Angular components
+
+    // Demo styles
+    link( rel='stylesheet' href='app/app.css' )
     link( rel='stylesheet' href='fluid-svg/fluid-svg.css' )
+    link( rel='stylesheet' href='configurable-svg/configurable-svg.css' )
 
-  body
-    h2
-      | Fluid SVG
-      br
-      small UI Engineering
+  body( ng-cloak ng-controller='AppController as vm' )
+    pre Demo {{ vm.demo | json }}
+    ul
+      li( ng-repeat='demo in vm.demos' ng-click='vm.demo = demo' )
+        a( href ) {{ demo }}
+    hr
+
+    .fluid-svg( ng-if='vm.demo == "fluid-svg"' )
+      h2
+        | Fluid SVG
+        br
+        small UI Engineering
+
+      .demo( style='width: 100px' )
+        small .demo 100px
+        fluid-svg
+      .demo( style='width: 200px' )
+        small .demo 200px
+        fluid-svg
+      .demo
+        small .demo 100%
+        fluid-svg
+
+    .configurable-svg( ng-if='vm.demo == "configurable-svg"' )
+      h2
+        | Configurable SVG
+        br
+        small UI Engineering
+
+      .inputs
+        p
+          | The width and height below, are not the real width and height of the SVG element. They represent the aspect ratio you want it to have.
+          br
+          | Nevertheless, they will determine the quantities you use for positioning stuff in it (that is, until you start using D3 scales, then it won't matter much).
+        label Width
+          input( min='1' ng-model='vm.width' size='7' type='number' )
+        label Height
+          input( min='1' ng-model='vm.height' size='7' type='number' )
+        span  Aspect ratio: <strong>{{ vm.width/vm.height | number:3 }}:1</strong>
+
+        blockquote
+          p
+            | What this means is: I want its <strong>width</strong> to be {{ vm.width/vm.height | number:3 }} times as it's tall.
+            br
+            | It also means: I want its <strong>height</strong> to be {{ vm.height/vm.width | number:3 }} times as it's wide.
+
+        p Some common aspect ratio proportions (click on them):
+        ul
+          li( ng-repeat='aspectRatio in vm.commonAspectRatios' )
+            a( href ng-click='vm.setAspectRatio( aspectRatio.value )' )
+              | {{ aspectRatio.label }}
+              small  {{ aspectRatio.value }}
+
+        p Here below you'll see three instances of the <strong>configurable-svg</strong> component that react to width and height changes:
+      .demo( style='width: 100px; float:left' )
+        small .demo 100px
+        configurable-svg( width='vm.width' height='vm.height' )
+      .demo( style='width: 200px; float:left' )
+        small .demo 200px
+        configurable-svg( width='vm.width' height='vm.height' )
+      .demo( style='width: 400px; float:left' )
+        small .demo 400px
+        configurable-svg( width='vm.width' height='vm.height' )
 
 
-    .demo( style='width: 100px' )
-      small .demo 100px
-      fluid-svg
-    .demo( style='width: 200px' )
-      small .demo 200px
-      fluid-svg
-    .demo
-      small .demo 100%
-      fluid-svg
-
+    // Dependencies
     script( src='https://d3js.org/d3.v4.min.js' )
     script( src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js' )
+
+    // Demo code
     script( src='app/app.module.js' )
-    script( src='fluid-svg/fluid-svg.js' )
+    script( src='app/app.controller.js' )
+    script( src='fluid-svg/fluid-svg.component.js' )
+    script( src='configurable-svg/configurable-svg.controller.js' )
+    script( src='configurable-svg/configurable-svg.component.js' )

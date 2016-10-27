@@ -5,38 +5,98 @@ html( lang='en' ng-app='ui.engineering' )
     meta( name='viewport' content='width=device-width, initial-scale=1' )
     title UI Engineering — D3 Angular components — Angular Material
 
-    link( rel='stylesheet' href='fluid-svg/fluid-svg.css' )
+    // Dependencies
     link( rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic' )
     link( rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons' )
     link( rel='stylesheet' href='http://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.css' )
 
-  body
-    md-content.md-padding
-      md-card
-        md-card-header
-          md-card-avatar
-            md-icon sentiment_very_satisfied
-          md-card-header-text
-            span.md-headline Fluid SVG
-            span.md-subhead UI Engineering
-        md-card-content
-          .demo( layout='row' layout-align='space-between center')
-            .demo-item( flex='30' )
-              small .demo flex=30
-              fluid-svg
-            .demo-item( flex='60' )
-              small .demo flex=60
-              fluid-svg
-          .demo( layout='row' layout-align='space-between center')
-            .demo-item( flex )
-              small .demo flex=100
-              fluid-svg
+    // Demo styles
+    link( rel='stylesheet' href='app/app.css' )
+    link( rel='stylesheet' href='fluid-svg/fluid-svg.css' )
+    link( rel='stylesheet' href='configurable-svg/configurable-svg.css' )
 
+  body( ng-cloak ng-controller='AppController as vm' )
+    md-content.md-padding
+      pre Demo {{ vm.demo | json }}
+      md-button.md-raised( ng-class='{ "md-primary": demo === vm.demo }' ng-click='vm.demo = demo' ng-repeat='demo in vm.demos' ) {{ demo }}
+
+      .fluid-svg( ng-if='vm.demo == "fluid-svg"' )
+
+        md-card
+          md-card-header
+            md-card-avatar
+              md-icon widgets
+            md-card-header-text
+              span.md-headline Fluid SVG
+              span.md-subhead UI Engineering
+          md-card-content
+            .demo( layout='row' layout-align='space-between center')
+              .demo-item( flex='30' )
+                small .demo flex=30
+                fluid-svg
+              .demo-item( flex='60' )
+                small .demo flex=60
+                fluid-svg
+            .demo( layout='row' layout-align='space-between center')
+              .demo-item( flex )
+                small .demo flex=100
+                fluid-svg
+
+      .configurable-svg( ng-if='vm.demo == "configurable-svg"' )
+        md-card
+          md-card-header
+            md-card-avatar
+              md-icon widgets
+            md-card-header-text
+              span.md-headline Configurable SVG
+              span.md-subhead UI Engineering
+          md-card-content
+            .inputs
+              p
+                | The width and height below, are not the real width and height of the SVG element. They represent the aspect ratio you want it to have.
+                br
+                | Nevertheless, they will determine the quantities you use for positioning stuff in it (that is, until you start using D3 scales, then it won't matter much).
+              md-input-container
+                label Width
+                input( min='1' ng-model='vm.width' size='7' type='number' )
+              md-input-container
+                label Height
+                input( min='1' ng-model='vm.height' size='7' type='number' )
+              span  Aspect ratio: <strong>{{ vm.width/vm.height | number:3 }}:1</strong>
+
+              blockquote
+                p
+                  | What this means is: I want its <strong>width</strong> to be {{ vm.width/vm.height | number:3 }} times as it's tall.
+                  br
+                  | It also means: I want its <strong>height</strong> to be {{ vm.height/vm.width | number:3 }} times as it's wide.
+
+              p Some common aspect ratio proportions (click on them):
+              md-button.md-raised( href ng-click='vm.setAspectRatio( aspectRatio.value )' ng-repeat='aspectRatio in vm.commonAspectRatios' )
+                span {{ aspectRatio.label }}
+                small  {{ aspectRatio.value }}
+
+              p Here below you'll see three instances of the <strong>configurable-svg</strong> component that react to width and height changes:
+            .demo( style='width: 100px; float:left' )
+              small .demo 100px
+              configurable-svg( width='vm.width' height='vm.height' )
+            .demo( style='width: 200px; float:left' )
+              small .demo 200px
+              configurable-svg( width='vm.width' height='vm.height' )
+            .demo( style='width: 400px; float:left' )
+              small .demo 400px
+              configurable-svg( width='vm.width' height='vm.height' )
+
+    // Dependencies
     script( src='https://d3js.org/d3.v4.min.js' )
     script( src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js' )
     script( src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js' )
     script( src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js' )
     script( src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js' )
     script( src='https://ajax.googleapis.com/ajax/libs/angular_material/1.1.1/angular-material.min.js' )
+
+    // Demo code
     script( src='app/app-md.module.js' )
-    script( src='fluid-svg/fluid-svg.js' )
+    script( src='app/app.controller.js' )
+    script( src='fluid-svg/fluid-svg.component.js' )
+    script( src='configurable-svg/configurable-svg.controller.js' )
+    script( src='configurable-svg/configurable-svg.component.js' )

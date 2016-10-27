@@ -1,0 +1,12 @@
+configurable-svg .container {
+  background-color: red;
+  border: 1px solid black;
+  padding: 0; }
+configurable-svg svg {
+  transition: all 1s ease;
+  background-color: #4e99bf;
+  display: block; }
+  configurable-svg svg rect.little-rect {
+    fill: #ffe898; }
+
+/*# sourceMappingURL=configurable-svg.css.map */

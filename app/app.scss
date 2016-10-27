@@ -1,0 +1,13 @@
+// This element appears in index.html and index-md.html
+.demo {
+  margin-bottom: 1em;
+  margin-right: 1em;
+
+  .inputs {
+    margin-bottom: 1em;
+
+    input[type=number] {
+      width: 100px;
+    }
+  }
+}

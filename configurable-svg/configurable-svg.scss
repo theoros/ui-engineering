@@ -1,4 +1,4 @@
-fluid-svg {
+configurable-svg {
   // This targets the container element in each component's template
   .container {
     background-color: red;
@@ -8,6 +8,7 @@ fluid-svg {
 
   // This styles the SVG that gets created in Angular using D3
   svg {
+    transition: all 1s ease;
     background-color: #4e99bf;
     // This is needed as SVG is an inline element and will leave whitespace below
     // to observe this behaviour comment/delete this line or change it to display: inline;
